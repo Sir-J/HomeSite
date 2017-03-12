@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
+import { AppHeaderComponent } from './app.header.component'
+import { AppFooterComponent } from './app.footer.component'
 
 @NgModule({
   imports:      [ 
@@ -11,6 +13,8 @@ import { AppComponent }  from './app.component';
                 ],
   declarations: [ 
                     AppComponent,
+                    AppHeaderComponent,
+                    AppFooterComponent
                 ],
   bootstrap:    [ AppComponent ]
 })

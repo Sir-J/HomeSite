@@ -292,8 +292,8 @@ node_modules/
 jspm_packages/
 
 #Ignor compiled app files
-HomeSite/app/*.map
-HomeSite/app/*.js
+HomeSite/app/**/*.map
+HomeSite/app/**/*.js
 HomeSite/*.js
 HomeSite/*.map
 
