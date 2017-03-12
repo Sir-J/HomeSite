@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.template.html" />
     <Content Include="packages.config" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
