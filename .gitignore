@@ -291,6 +291,12 @@ build/Release
 node_modules/
 jspm_packages/
 
+#Ignor compiled app files
+HomeSite/app/**/*.map
+HomeSite/app/**/*.js
+HomeSite/*.js
+HomeSite/*.map
+
 # Typescript v1 declaration files
 typings/
 
@@ -311,4 +317,3 @@ typings/
 
 # dotenv environment variables file
 .env
-

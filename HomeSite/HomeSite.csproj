@@ -68,6 +68,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.footer.component.html" />
+    <Content Include="app\app.header.component.html" />
+    <Content Include="app\app.component.html" />
     <Content Include="packages.config" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
@@ -90,7 +93,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\app.component.spec.ts" />
+    <TypeScriptCompile Include="app\app.footer.component.ts" />
+    <TypeScriptCompile Include="app\app.header.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="main.ts" />
