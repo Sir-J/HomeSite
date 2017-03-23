@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/node_modules/inspinia/dist/inspinia.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/content/styles.css">
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Polyfill(s) for older browsers -->
@@ -23,7 +23,7 @@
         System.import('main.js').catch(function (err) { console.error(err); });
     </script>
 </head>
-<body>
-    <app>Инициализируется приложение ...</app>
+<body>    
+    <ui-view>Loading...</ui-view>
 </body>
 </html>
