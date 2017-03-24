@@ -1,6 +1,7 @@
 ﻿import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component'
 
 /**
  * This is the parent state for the entire application.
@@ -15,7 +16,13 @@ export const appState = {
   component: AppComponent,
 };
 
-/**
+export const loginState = {
+  name: 'login',
+  url: '/login',
+  component: LoginComponent
+};
+
+/*
  * This is the 'welcome' state.  It is the default state (as defined by app.js) if no other state
  * can be matched to the URL.
  */
@@ -35,6 +42,8 @@ export const aboutState = {
 
 export const APP_STATES = [
     appState,
+    loginState,    
+
     aboutState,
     mainState
 ];
