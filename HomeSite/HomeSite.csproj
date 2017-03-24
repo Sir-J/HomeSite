@@ -72,6 +72,7 @@
     <Content Include="app\app.footer.component.html" />
     <Content Include="app\app.header.component.html" />
     <Content Include="app\app.component.html" />
+    <Content Include="app\login\login.component.html" />
     <Content Include="app\main\main.component.html" />
     <Content Include="content\images\primary_196x69.png" />
     <Content Include="content\images\primary_196x69.svg" />
@@ -103,7 +104,11 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.states.ts" />
+    <TypeScriptCompile Include="app\login\login.component.ts" />
     <TypeScriptCompile Include="app\main\main.component.ts" />
+    <TypeScriptCompile Include="app\router.config.ts" />
+    <TypeScriptCompile Include="app\services\auth.service.ts" />
+    <TypeScriptCompile Include="app\services\userContext.service.ts" />
     <TypeScriptCompile Include="main.ts" />
   </ItemGroup>
   <ItemGroup>

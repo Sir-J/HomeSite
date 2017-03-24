@@ -12,6 +12,12 @@ import { AppHeaderComponent } from './app.header.component'
 import { AppFooterComponent } from './app.footer.component'
 import { MainComponent } from './main/main.component'
 import { AboutComponent } from './about/about.component'
+import { LoginComponent } from './login/login.component'
+
+import { routerConfigFn } from './router.config';
+import { UserContextService } from './services/userContext.service';
+import { AuthService } from './services/auth.service';
+
 
 @NgModule({
   imports:      [ 
@@ -20,22 +26,28 @@ import { AboutComponent } from './about/about.component'
                       states: APP_STATES,
                       otherwise: { state: 'main' },
                       useHash: true,
-                      //config: routerConfigFn,
-                }),
-                BrowserModule,
-                FormsModule,
-                HttpModule
+                      config: routerConfigFn
+                    }),
+                    BrowserModule,
+                    FormsModule,
+                    HttpModule
                 ],
   declarations: [ 
                     AppComponent,
                     AppHeaderComponent,
                     AppFooterComponent,
                     MainComponent,
-                    AboutComponent
+                    AboutComponent,
+                    LoginComponent
                 ],
   providers: [
-    { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader }
-  ],
+                { 
+                    provide: NgModuleFactoryLoader, 
+                    useClass: SystemJsNgModuleLoader 
+                },
+                UserContextService,
+                AuthService
+             ],
   bootstrap:    [ UIView ]
 })
 export class AppModule { }
