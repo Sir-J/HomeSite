@@ -1,4 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
+import { User } from '../models/models'
 
 /**
  * This service stores and retrieves user preferences in session storage
@@ -9,7 +10,7 @@ export class UserContextService {
         this.load();
     }
 
-    userContext: Object = null;    
+    userContext: User = null;    
     
     load() {
         try {

@@ -1,0 +1,24 @@
+{
+  "name": "HomeSite",
+  "version": "1.0.0",
+  "description": "Небольшой проект сайта дома.\r Проект выполняется в учебных целях для освоения Angular 2.0",
+  "main": "jsonserver.js",
+  "dependencies": {},
+  "devDependencies": {
+    "json-server": "^0.9.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sir-J/HomeSite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sir-J/HomeSite/issues"
+  },
+  "homepage": "https://github.com/Sir-J/HomeSite#readme"
+}
