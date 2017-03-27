@@ -15,8 +15,7 @@ import { AboutComponent } from './about/about.component'
 import { LoginComponent } from './login/login.component'
 
 import { routerConfigFn } from './router.config';
-import { UserContextService } from './services/userContext.service';
-import { AuthService } from './services/auth.service';
+import { UserContextService, AuthService, NewsService } from './services/services';
 
 
 @NgModule({
@@ -46,7 +45,8 @@ import { AuthService } from './services/auth.service';
                     useClass: SystemJsNgModuleLoader 
                 },
                 UserContextService,
-                AuthService
+                AuthService,
+                NewsService
              ],
   bootstrap:    [ UIView ]
 })
