@@ -111,6 +111,7 @@
     <TypeScriptCompile Include="app\models\user.ts" />
     <TypeScriptCompile Include="app\router.config.ts" />
     <TypeScriptCompile Include="app\services\auth.service.ts" />
+    <TypeScriptCompile Include="app\services\news.service.ts" />
     <TypeScriptCompile Include="app\services\services.ts" />
     <TypeScriptCompile Include="app\services\userContext.service.ts" />
     <TypeScriptCompile Include="main.ts" />
