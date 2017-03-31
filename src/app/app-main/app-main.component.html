@@ -1,0 +1,8 @@
+<div class="row">
+  <h1 class="page-header">Новости нашего дома</h1>
+  <div class="col-md-4" *ngFor="let item of news">
+    <h2 [innerHtml]="item.Title"></h2>
+    <div [innerHtml]="item.Content"></div>
+    <p><a class="btn btn-default" href="#" role="button">Подробнее</a></p>
+  </div>
+</div>
