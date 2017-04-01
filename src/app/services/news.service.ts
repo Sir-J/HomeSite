@@ -9,7 +9,7 @@ import { News } from '../models'
  */
 @Injectable()
 export class NewsService {    
-    newsUrl:string = '/news'
+    newsUrl:string = 'api/news'
 
     constructor(private http: Http) {        
     }
@@ -17,7 +17,7 @@ export class NewsService {
     getAllNews(): Promise<News[]> {
         return this.http.get(this.newsUrl)
           .toPromise()
-          .then(response => response.json() as News[])
+          .then(response => response.json().data as News[])
           .catch(this.handleError);
       }
 
