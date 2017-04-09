@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-	"github-pages": "ng build --prod --base-href https://Sir-j.github.io/HomeSite/ && angular-cli-ghpages"
+    "github-pages": "ng build --prod --base-href https://Sir-j.github.io/HomeSite/ && angular-cli-ghpages"
   },
   "private": true,
   "dependencies": {
@@ -22,11 +22,12 @@
     "@angular/platform-browser-dynamic": "^2.4.10",
     "@angular/router": "^3.3.1",
     "angular-in-memory-web-api": "^0.3.1",
-    "bootstrap": "3.3.7",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "font-awesome": "4.7.0",
     "inspinia": "2.6.5",
     "jquery": "3.1.1",
+    "ngx-bootstrap": "^1.6.5",
     "rxjs": "^5.1.0",
     "ui-router-ng2": "^1.0.0-beta.4",
     "zone.js": "^0.8.4"
