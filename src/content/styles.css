@@ -1,8 +1,9 @@
 body {
-    padding-top: 70px;
+    padding-top: 50px;    
+    padding-bottom: 70px;
     background-color: #fff;
     color: #676a6c;
-    font-family: "Open Sans",helvetica,arial,sans-serif;
+    font-family: helvetica,arial,sans-serif;
 }
 
 .navbar-brand {
@@ -11,4 +12,14 @@ body {
 
 .logo-name {
     margin-left: -40px;
+}
+
+.footer{
+    position: fixed;        
+}
+
+.small-news-view {
+    height: 200px;
+    overflow: hidden;
+    white-space: pre-wrap;
 }

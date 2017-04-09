@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { CarouselModule } from 'ngx-bootstrap';
+
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { UIRouterModule, UIView } from "ui-router-ng2";
@@ -27,7 +29,7 @@ import { AppAboutComponent } from './app-about/app-about.component';
     AppHeaderComponent,
     LoginComponent,
     AppMainComponent,
-    AppAboutComponent
+    AppAboutComponent,
   ],
   imports: [
     UIRouterModule.forRoot({
@@ -39,9 +41,10 @@ import { AppAboutComponent } from './app-about/app-about.component';
     BrowserModule,    
     FormsModule,
     HttpModule,
+    CarouselModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
   ],
-  providers: [ AuthService, UserContextService, NewsService],
+  providers: [ AuthService, UserContextService, NewsService],  
   bootstrap: [UIView]
 })
 export class AppModule { }
