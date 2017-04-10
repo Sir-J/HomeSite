@@ -2,6 +2,7 @@
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppAboutComponent } from './app-about/app-about.component';
 import { LoginComponent } from './login/login.component'
+import { NewsComponent } from './news/news.component'
 
 /**
  * This is the parent state for the entire application.
@@ -40,10 +41,18 @@ export const aboutState = {
     component: AppAboutComponent
 };
 
+export const newsState = {
+    parent: 'app',
+    name: 'news',
+    url: '/news',
+    component: NewsComponent
+};
+
 export const APP_STATES = [
     appState,
     loginState,    
 
     aboutState,
-    mainState
+    mainState,
+    newsState
 ];

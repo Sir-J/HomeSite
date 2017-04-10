@@ -21,6 +21,7 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { LoginComponent } from './login/login.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppAboutComponent } from './app-about/app-about.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AppAboutComponent } from './app-about/app-about.component';
     LoginComponent,
     AppMainComponent,
     AppAboutComponent,
+    NewsComponent,
   ],
   imports: [
     UIRouterModule.forRoot({
