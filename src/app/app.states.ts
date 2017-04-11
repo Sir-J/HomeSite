@@ -2,7 +2,6 @@
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppAboutComponent } from './app-about/app-about.component';
 import { LoginComponent } from './login/login.component'
-import { NewsComponent } from './news/news.component'
 
 /**
  * This is the parent state for the entire application.
@@ -12,15 +11,15 @@ import { NewsComponent } from './news/news.component'
  * 2) Provide a viewport (ui-view) for a substate to plug into
  */
 export const appState = {
-  name: 'app',
-  redirectTo: 'main',
-  component: AppComponent,
+    name: 'app',
+    redirectTo: 'main',
+    component: AppComponent,
 };
 
 export const loginState = {
-  name: 'login',
-  url: '/login',
-  component: LoginComponent
+    name: 'login',
+    url: '/login',
+    component: LoginComponent
 };
 
 /*
@@ -41,18 +40,33 @@ export const aboutState = {
     component: AppAboutComponent
 };
 
-export const newsState = {
-    parent: 'app',
-    name: 'news',
-    url: '/news',
-    component: NewsComponent
-};
+// export const newsState = {
+//     name: 'app.news',
+//     url: '/news',
+//     redirectTo: 'app.news.index',
+//     component: NewsComponent
+// };
+
+// export const newsIndexState = {
+//     name: 'app.news.index',
+//     url: '',
+//     views: {
+//         index: { component: NewsComponent },
+//     },
+// };
+
+// export const newsDetailState = {
+//     name: "app.news.detail",
+//     url: '/:id',
+//     views: {
+//         detail: { component: NewsComponent },
+//     },
+// };
 
 export const APP_STATES = [
     appState,
-    loginState,    
+    loginState,
 
     aboutState,
     mainState,
-    newsState
 ];

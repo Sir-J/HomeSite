@@ -1,5 +1,5 @@
 <app-app-header></app-app-header>
-<carousel [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex" class="visible-sm">
+<carousel [interval]="myInterval" [noWrap]="noWrapSlides" [(activeSlide)]="activeSlideIndex" class="hidden-sm">
     <slide *ngFor="let slide of slides; let index=index">
         <img [src]="slide.image" class="img-responsive center-block">
     </slide>

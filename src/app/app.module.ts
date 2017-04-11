@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NewsModule } from './news/news.module'
 
 import { CarouselModule } from 'ngx-bootstrap';
 
@@ -11,7 +12,7 @@ import { UIRouterModule, UIView } from "ui-router-ng2";
 import { APP_STATES } from "./app.states";
 import { routerConfigFn } from './router.config';
 
-import { AuthService, UserContextService, NewsService, InMemoryDataService } from './services'
+import { AuthService, UserContextService, InMemoryDataService } from './services'
 
 
 
@@ -21,7 +22,6 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { LoginComponent } from './login/login.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppAboutComponent } from './app-about/app-about.component';
-import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,6 @@ import { NewsComponent } from './news/news.component';
     LoginComponent,
     AppMainComponent,
     AppAboutComponent,
-    NewsComponent,
   ],
   imports: [
     UIRouterModule.forRoot({
@@ -43,10 +42,11 @@ import { NewsComponent } from './news/news.component';
     BrowserModule,    
     FormsModule,
     HttpModule,
+    NewsModule,
     CarouselModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
   ],
-  providers: [ AuthService, UserContextService, NewsService],  
+  providers: [ AuthService, UserContextService],  
   bootstrap: [UIView]
 })
 export class AppModule { }

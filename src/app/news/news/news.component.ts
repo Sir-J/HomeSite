@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { News } from '../models';
 import { NewsService } from '../services';
+import { StateService } from 'ui-router-core';
 
 @Component({
   selector: 'app-news',
@@ -15,9 +16,9 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.newsService.getAllNews()
-      .then(news => {
-        this.news = news
-      });
+        .then(news => {
+          this.news = news
+        });
   }
 
 }

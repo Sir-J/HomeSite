@@ -1,4 +1,7 @@
-<div class="row">  
+<div class="page-header">
+  <h1>Последние новости</h1>
+</div>
+<div class="row">    
   <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of news">
     <h1 [innerHtml]="item.Title"></h1>
     <div [innerHtml]="item.Content" class="small-news-view"></div>

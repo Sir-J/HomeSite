@@ -9,7 +9,7 @@ import { News } from '../models'
  */
 @Injectable()
 export class NewsService {
-    newsUrl: string = 'api/news/:id'
+    newsUrl: string = 'api/news'
 
     constructor(private http: Http) {
     }
