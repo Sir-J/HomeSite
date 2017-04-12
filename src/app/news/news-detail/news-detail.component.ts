@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from 'ui-router-core';
+
+import { News } from '../models';
+import { NewsService } from '../services';
 
 @Component({
   selector: 'app-news-detail',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsDetailComponent implements OnInit {
 
-  constructor() { }
+  public news: News = new News();
 
-  ngOnInit() {
+  constructor(private newsService: NewsService, private stateService: StateService) { }
+
+  ngOnInit() {    
+    this.newsService.getNews(this.stateService.params.id)
+      .then(news => {
+        this.news = news
+      });
   }
 
 }

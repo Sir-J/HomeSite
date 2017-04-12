@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NgModuleFactoryLoader, SystemJsNgModuleLoader } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NewsModule } from './news/news.module'
@@ -39,14 +39,14 @@ import { AppAboutComponent } from './app-about/app-about.component';
       useHash: true,
       config: routerConfigFn
     }),
-    BrowserModule,    
+    BrowserModule,
     FormsModule,
     HttpModule,
     NewsModule,
     CarouselModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
   ],
-  providers: [ AuthService, UserContextService],  
+  providers: [AuthService, UserContextService, { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader }],
   bootstrap: [UIView]
 })
 export class AppModule { }

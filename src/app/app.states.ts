@@ -40,28 +40,12 @@ export const aboutState = {
     component: AppAboutComponent
 };
 
-// export const newsState = {
-//     name: 'app.news',
-//     url: '/news',
-//     redirectTo: 'app.news.index',
-//     component: NewsComponent
-// };
-
-// export const newsIndexState = {
-//     name: 'app.news.index',
-//     url: '',
-//     views: {
-//         index: { component: NewsComponent },
-//     },
-// };
-
-// export const newsDetailState = {
-//     name: "app.news.detail",
-//     url: '/:id',
-//     views: {
-//         detail: { component: NewsComponent },
-//     },
-// };
+// This future state is a placeholder for the lazy loaded Prefs states
+export const newsFutureState = {
+  name: 'news.**',
+  url: '/news',
+  loadChildren: './news/news.module#NewsModule'
+};
 
 export const APP_STATES = [
     appState,
@@ -69,4 +53,5 @@ export const APP_STATES = [
 
     aboutState,
     mainState,
+    newsFutureState
 ];

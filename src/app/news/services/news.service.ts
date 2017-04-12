@@ -21,8 +21,8 @@ export class NewsService {
             .catch(this.handleError);
     }
 
-    getNews(id:number): Promise<News> {
-        const url = `${this.newsUrl}/${id}`;
+    getNews(Id:number): Promise<News> {
+        const url = `${this.newsUrl}/${Id}`;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json().data as News)
