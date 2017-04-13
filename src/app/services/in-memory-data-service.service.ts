@@ -6,7 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let news = [
       {
-        "Id": 1,
+        "id": 1,
         "DateAdd": "2017-03-01 16:00:00",
         "Title": "Aperiam eaque ipsa",
         "Content": `<p>Lorem ipsum dolor sit amet. Sunt, explicabo excepturi sint, obcaecati cupiditate non recusandae. Optio, cumque nihil molestiae non provident, similique sunt in ea commodi autem. Vero eos et harum quidem rerum. Ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam. In culpa, qui sequi nesciunt, neque porro quisquam est. Voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem. Earum rerum necessitatibus saepe eveniet, ut et harum quidem rerum.</p>
@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     <p>Esse, quam nihil impedit, quo minus id, quod maxime placeat, facere possimus. Aliquid ex ea voluptate velit esse. Animi, id est eligendi optio, cumque nihil molestiae consequatur, vel illum. Saepe eveniet, ut aut reiciendis. Consequatur, vel eum iure reprehenderit, qui dolorem. Consequatur aut reiciendis voluptatibus maiores alias consequatur aut rerum. Magni dolores et quas molestias excepturi. Deserunt mollitia animi, id est eligendi optio cumque.</p>`
       },
       {
-        "Id": 2,
+        "id": 2,
         "DateAdd": "2017-03-02 17:00:00",
         "Title": "Accusantium doloremque",
         "Content": `<p>Lorem ipsum dolor sit amet. Laborum et dolore magnam aliquam quaerat voluptatem sequi nesciunt. Dolor sit, amet, consectetur adipisci. Error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque. Hic tenetur a sapiente delectus, ut perspiciatis, unde omnis voluptas assumenda. Ipsum, quia dolor repellendus totam. Autem quibusdam et expedita distinctio voluptates repudiandae sint et harum. Deserunt mollitia animi, id est et dolore. Voluptatem, quia dolor repellendus nemo enim.</p>
@@ -22,7 +22,7 @@ export class InMemoryDataService implements InMemoryDbService {
                     <p>Reprehenderit, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem. Ratione voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae. Sequi nesciunt, neque porro quisquam est. Inventore veritatis et dolorum fuga officia deserunt mollitia animi, id. Illum, qui delectus, ut aliquid ex ea voluptate. Exercitationem ullam corporis suscipit laboriosam, nisi ut aut odit aut fugit.</p>`
       },
       {
-        "Id": 3,
+        "id": 3,
         "DateAdd": "2017-03-03 15:00:00",
         "Title": "Commodi autem",
         "Content": `<p>Lorem ipsum dolor sit amet. Ut aut odit aut reiciendis voluptatibus maiores alias consequatur aut rerum. Sit voluptatem sequi nesciunt, neque porro quisquam est, omnis voluptas. Voluptates repudiandae sint et dolorum fuga ad minima veniam, quis nostrum exercitationem. Ab illo inventore veritatis. Molestias excepturi sint, obcaecati cupiditate non recusandae mollitia animi. Velit, sed quia voluptas nulla. Placeat, facere possimus, omnis iste. Earum rerum facilis est laborum et aut fugit.</p>

@@ -11,15 +11,15 @@ import { LoginComponent } from './login/login.component'
  * 2) Provide a viewport (ui-view) for a substate to plug into
  */
 export const appState = {
-  name: 'app',
-  redirectTo: 'main',
-  component: AppComponent,
+    name: 'app',
+    redirectTo: 'main',
+    component: AppComponent,
 };
 
 export const loginState = {
-  name: 'login',
-  url: '/login',
-  component: LoginComponent
+    name: 'login',
+    url: '/login',
+    component: LoginComponent
 };
 
 /*
@@ -40,10 +40,18 @@ export const aboutState = {
     component: AppAboutComponent
 };
 
+// This future state is a placeholder for the lazy loaded Prefs states
+export const newsFutureState = {
+  name: 'news.**',
+  url: '/news',
+  loadChildren: './news/news.module#NewsModule'
+};
+
 export const APP_STATES = [
     appState,
-    loginState,    
+    loginState,
 
     aboutState,
-    mainState
+    mainState,
+    newsFutureState
 ];
