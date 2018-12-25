@@ -4,5 +4,14 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    defaultLanguage: 'ru',
+    apiUrl: 'http://localhost:3000/api',
+    webStoragePrefix: 'local',
+    webStorageToken: 'token',
+    identityServerUrl: 'http://localhost:3000/api',
+    whitelistedDomains: [
+        // временно разрешаем все возможные домены
+        'localhost:3000' // expressjs mock api
+    ]
 };

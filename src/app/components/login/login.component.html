@@ -1,0 +1,13 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
+        <div><h1 class="logo-name">Т240</h1></div>
+        <p>Пожалуйста авторизуйтесь для доступа в систему</p>
+        <form class="m-t" role="form" (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="form-group"><input type="text" class="form-control" placeholder="Логин" [(ngModel)]="userName" name="login" /></div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Пароль" [(ngModel)]="password" name="password" />
+            </div>
+            <button type="submit" value="submit" class="btn btn-primary block full-width m-b">Войти</button>
+        </form>
+    </div>
+</div>

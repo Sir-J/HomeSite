@@ -1,52 +1,72 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NgModuleFactoryLoader, SystemJsNgModuleLoader } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { NewsModule } from './news/news.module'
-
-import { CarouselModule } from 'ngx-bootstrap';
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
-import { UIRouterModule, UIView } from "ui-router-ng2";
-import { APP_STATES } from "./app.states";
-import { routerConfigFn } from './router.config';
-
-import { AuthService, UserContextService, InMemoryDataService } from './services'
-
-
-
-import { AppComponent } from './app.component';
-import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { LoginComponent } from './login/login.component';
-import { AppMainComponent } from './app-main/app-main.component';
-import { AppAboutComponent } from './app-about/app-about.component';
-
-@NgModule({
-  declarations: [
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
+import { API_SERIALIZER, SimplyApiModule } from 'angular-simply-api';
+import { AppRouterModule } from 'app/app.router';
+import {
+    AppAboutComponent,
     AppComponent,
     AppFooterComponent,
     AppHeaderComponent,
-    LoginComponent,
     AppMainComponent,
-    AppAboutComponent,
-  ],
-  imports: [
-    UIRouterModule.forRoot({
-      states: APP_STATES,
-      otherwise: { state: 'main' },
-      useHash: true,
-      config: routerConfigFn
-    }),
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    NewsModule,
-    CarouselModule.forRoot(),
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 500 }),
-  ],
-  providers: [AuthService, UserContextService, { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader }],
-  bootstrap: [UIView]
+    LoginComponent,
+} from 'app/components';
+import { AuthModule, AuthTokenService, defaults } from 'app/modules/auth';
+import { environment } from 'environments/environment';
+import { JsTsMapper } from 'js-ts-mapper';
+import { CarouselModule } from 'ngx-bootstrap';
+
+import { AuthService, UserContextService } from './services';
+import { BlockUIModule } from 'ng-block-ui';
+
+export function jwtOptionsFactory(authTokenService: AuthTokenService) {
+    return {
+        tokenGetter: () => {
+            return authTokenService.getToken();
+        },
+        whitelistedDomains: environment.whitelistedDomains
+    };
+}
+
+@NgModule({
+    declarations: [AppComponent, AppFooterComponent, AppHeaderComponent, LoginComponent, AppMainComponent, AppAboutComponent],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        FormsModule,
+        RouterModule,
+        BrowserAnimationsModule,
+        CarouselModule.forRoot(),
+        AuthModule.forRoot({
+            stsParams: {
+                client_id: 'AdminAPI',
+                client_secret: 'secretPassword',
+                scope: 'openid AdminApiScope offline_access'
+            },
+            tokenEndpoint: environment.identityServerUrl + defaults.tokenEndpoint
+        }),
+        SimplyApiModule.forRoot({
+            endpoint: environment.apiUrl,
+            serializeProvider: {
+                provide: API_SERIALIZER,
+                useFactory: () => new JsTsMapper()
+            }
+        }),
+        JwtModule.forRoot({
+            jwtOptionsProvider: {
+                provide: JWT_OPTIONS,
+                useFactory: jwtOptionsFactory,
+                deps: [AuthTokenService]
+            }
+        }),
+        AppRouterModule,
+        BlockUIModule.forRoot()
+    ],
+    providers: [AuthService, UserContextService],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
