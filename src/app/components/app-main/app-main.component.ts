@@ -5,7 +5,7 @@ import { News } from '../../modules/news/models/news';
 @Component({
     selector: 'app-app-main',
     templateUrl: './app-main.component.html',
-    styleUrls: ['./app-main.component.css']
+    styleUrls: ['./app-main.component.less']
 })
 export class AppMainComponent implements OnInit {
     public news: News[];

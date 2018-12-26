@@ -15,13 +15,15 @@ import {
     AppMainComponent,
     LoginComponent,
 } from 'app/components';
+import { AuthGuard, LoginGuard } from 'app/guards';
 import { AuthModule, AuthTokenService, defaults } from 'app/modules/auth';
 import { environment } from 'environments/environment';
 import { JsTsMapper } from 'js-ts-mapper';
+import { BlockUIModule } from 'ng-block-ui';
 import { CarouselModule } from 'ngx-bootstrap';
 
 import { AuthService, UserContextService } from './services';
-import { BlockUIModule } from 'ng-block-ui';
+import { ToastrModule } from 'ngx-toastr';
 
 export function jwtOptionsFactory(authTokenService: AuthTokenService) {
     return {
@@ -41,6 +43,11 @@ export function jwtOptionsFactory(authTokenService: AuthTokenService) {
         RouterModule,
         BrowserAnimationsModule,
         CarouselModule.forRoot(),
+        ToastrModule.forRoot({
+            timeOut: 10000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true
+        }),
         AuthModule.forRoot({
             stsParams: {
                 client_id: 'AdminAPI',
@@ -66,7 +73,7 @@ export function jwtOptionsFactory(authTokenService: AuthTokenService) {
         AppRouterModule,
         BlockUIModule.forRoot()
     ],
-    providers: [AuthService, UserContextService],
+    providers: [AuthService, UserContextService, AuthGuard, LoginGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

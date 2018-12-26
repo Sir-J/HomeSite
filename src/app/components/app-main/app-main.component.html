@@ -1,11 +1,21 @@
-<app-app-header></app-app-header>
-<div class="container" style="padding-bottom: 70px;">
-    <div class="page-header"><h1>Последние новости</h1></div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of news">
-            <h1 [innerHtml]="item.Title"></h1>
-            <div [innerHtml]="item.Content" class="small-news-view"></div>
-            <p class="m-t-sm pull-right"><a class="btn btn-primary" uiSref="news.detail" role="button">Подробнее</a></p>
+<div id="page-wrapper" class="gray-bg">
+    <app-app-header></app-app-header>
+    <div class="wrapper wrapper-content">
+        <div class="container" style="padding-bottom: 70px;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="ibox ">
+                        <div class="ibox-title"><h1>Последние новости</h1></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4" *ngFor="let item of news">
+                    <h1 [textContent]="item.Title"></h1>
+                    <div [innerHtml]="item.Content" class="small-news-view"></div>
+                    <p class="m-t-sm pull-right"><a class="btn btn-primary" uiSref="news.detail" role="button">Подробнее</a></p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

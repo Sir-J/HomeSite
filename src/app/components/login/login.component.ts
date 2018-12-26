@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, User } from 'app/modules/auth';
+import { AUTH_SERVICE, AuthService, User } from 'app/modules/auth';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { ToastrService } from 'ngx-toastr';
 import { Subject, throwError } from 'rxjs';
@@ -19,7 +19,7 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
     @BlockUI()
     blockUI: NgBlockUI;
 
-    constructor(private authService: AuthService<User>, private router: Router, private toastr: ToastrService) {}
+    constructor(@Inject(AUTH_SERVICE) private authService: AuthService<User>, private router: Router, private toastr: ToastrService) {}
 
     login(): void {
         this.blockUI.start('Авторизуемся ...');
