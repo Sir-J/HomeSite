@@ -7,14 +7,7 @@ import { RouterModule } from '@angular/router';
 import { JWT_OPTIONS, JwtModule } from '@auth0/angular-jwt';
 import { API_SERIALIZER, SimplyApiModule } from 'angular-simply-api';
 import { AppRouterModule } from 'app/app.router';
-import {
-    AppAboutComponent,
-    AppComponent,
-    AppFooterComponent,
-    AppHeaderComponent,
-    AppMainComponent,
-    LoginComponent,
-} from 'app/components';
+import { AppAboutComponent, AppComponent, AppFooterComponent, AppHeaderComponent, AppMainComponent, LoginComponent } from 'app/components';
 import { AuthGuard, LoginGuard } from 'app/guards';
 import { AuthModule, AuthTokenService, defaults } from 'app/modules/auth';
 import { environment } from 'environments/environment';
@@ -22,7 +15,7 @@ import { JsTsMapper } from 'js-ts-mapper';
 import { BlockUIModule } from 'ng-block-ui';
 import { CarouselModule } from 'ngx-bootstrap';
 
-import { AuthService, UserContextService } from './services';
+import { UserContextService } from './services';
 import { ToastrModule } from 'ngx-toastr';
 
 export function jwtOptionsFactory(authTokenService: AuthTokenService) {
@@ -73,7 +66,7 @@ export function jwtOptionsFactory(authTokenService: AuthTokenService) {
         AppRouterModule,
         BlockUIModule.forRoot()
     ],
-    providers: [AuthService, UserContextService, AuthGuard, LoginGuard],
+    providers: [UserContextService, AuthGuard, LoginGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

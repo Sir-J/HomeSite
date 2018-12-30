@@ -1,6 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { User, AuthOptions } from './models/index';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -8,12 +7,12 @@ import { AuthApiService } from './auth-api.service';
 import { AuthTokenService } from './auth-token.service';
 import { defaults } from './auth.constants';
 import { AUTH_OPTIONS } from './auth.tokens';
+import { AuthOptions, User } from './models';
 
 const CLAIM_FULLACCESS = 'FullAccess';
 
 @Injectable()
 export class AuthService<T extends User> {
-
     readonly opts: AuthOptions<T>;
     readonly nulloUser: T;
     readonly user$: BehaviorSubject<T>;
@@ -24,8 +23,8 @@ export class AuthService<T extends User> {
         private jwtHelperService: JwtHelperService,
         @Inject(AUTH_OPTIONS) options: AuthOptions<T>
     ) {
-        this.opts = options || { userType: <new() => T>defaults.userType };
-        this.opts.userType = this.opts.userType || <new() => T>defaults.userType;
+        this.opts = options || { userType: <new () => T>defaults.userType };
+        this.opts.userType = this.opts.userType || <new () => T>defaults.userType;
         this.opts.tokenName = this.opts.tokenName || defaults.tokenName;
         this.nulloUser = new this.opts.userType();
         this.user$ = new BehaviorSubject<T>(this.nulloUser);
@@ -33,25 +32,29 @@ export class AuthService<T extends User> {
     }
 
     login(login: string, password: string): Observable<T> {
-        return this.authApi.login(login, password)
-            .pipe(
-                map(token => {
-                    if (token) {
-                        const tokenValue = token[this.opts.tokenName];
-                        if (tokenValue) {
-                            this.authTokenService.saveToken(token[this.opts.tokenName]);
-                        }
+        return this.authApi.login(login, password).pipe(
+            map(token => {
+                if (token) {
+                    const tokenValue = token[this.opts.tokenName];
+                    if (tokenValue) {
+                        this.authTokenService.saveToken(token[this.opts.tokenName]);
                     }
-                    let currentUser = this.getUser();
-                    this.user$.next(currentUser);
-                    return currentUser;
-                })
-            );
+                }
+                const currentUser = this.getUser();
+                this.user$.next(currentUser);
+                return currentUser;
+            })
+        );
     }
 
     isAuthenticated() {
         const currentUser = this.getUser();
-        return currentUser && typeof currentUser.preferred_username !== 'undefined' && currentUser.preferred_username !== '' && currentUser.preferred_username !== null;
+        return (
+            currentUser &&
+            typeof currentUser.preferred_username !== 'undefined' &&
+            currentUser.preferred_username !== '' &&
+            currentUser.preferred_username !== null
+        );
     }
 
     logout(): T {
@@ -61,7 +64,7 @@ export class AuthService<T extends User> {
         return currentUser;
     }
 
-    authorize (requiredClaims: string | string[] = null) {
+    authorize(requiredClaims: string | string[] = null) {
         if (!this.isAuthenticated()) {
             return false;
         }
@@ -84,8 +87,7 @@ export class AuthService<T extends User> {
         try {
             const decoded = this.jwtHelperService.decodeToken();
             return Object.freeze(Object.assign<T, any>(new this.opts.userType(), decoded));
-        }
-        catch (e) {
+        } catch (e) {
             console.warn(e);
             return this.nulloUser;
         }
@@ -110,6 +112,6 @@ export class AuthService<T extends User> {
         } catch (e) {
             console.warn(e);
             return false;
-        }    
+        }
     }
 }

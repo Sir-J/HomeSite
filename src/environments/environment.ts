@@ -12,6 +12,6 @@ export const environment = {
     identityServerUrl: 'http://localhost:3000/api',
     whitelistedDomains: [
         // временно разрешаем все возможные домены
-        'localhost:3000' // expressjs mock api
+        'localhost:3000' // expressjs mock api,
     ]
 };

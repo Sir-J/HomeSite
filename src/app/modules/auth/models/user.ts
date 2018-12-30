@@ -19,7 +19,7 @@ export interface TokenClaims {
 
 /**
  * Стандартные клаймы openid (UserInfo)
- * 
+ *
  * https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
  *
  * interface UserInfoClaims
@@ -49,10 +49,10 @@ export interface NonStandardClaims {
     user_client_id?: string;
     claims?: string | string[];
     role?: string;
+    fullname?: string;
 }
 
 export class User implements TokenClaims, UserInfoClaims, NonStandardClaims {
-
     iss: string;
     aud: string;
     exp: number;
@@ -83,5 +83,5 @@ export class User implements TokenClaims, UserInfoClaims, NonStandardClaims {
     user_client_id?: string;
     claims?: string | string[];
     role?: string;
+    fullname?: string;
 }
-

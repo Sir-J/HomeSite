@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 
 import { defaults } from './auth.constants';
 import * as AuthTokens from './auth.tokens';
-import { OAuthParams, AuthOptions, User } from './models/index';
-
+import { AuthOptions, OAuthParams, User } from './models';
 
 const headers = new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded'
@@ -13,14 +12,10 @@ const headers = new HttpHeaders({
 
 @Injectable()
 export class AuthApiService {
-
     private stsParams: OAuthParams;
     private tokenEndpoint: string;
 
-    constructor(
-        private httpClient: HttpClient,
-        @Inject(AuthTokens.AUTH_OPTIONS) options: AuthOptions<User>
-    ) {
+    constructor(private httpClient: HttpClient, @Inject(AuthTokens.AUTH_OPTIONS) options: AuthOptions<User>) {
         this.stsParams = options.stsParams;
         this.tokenEndpoint = options.tokenEndpoint || defaults.tokenEndpoint;
     }
@@ -54,7 +49,7 @@ export class AuthApiService {
         if (!this.stsParams) {
             return;
         }
-        for (let p in this.stsParams) {
+        for (const p in this.stsParams) {
             if (this.stsParams[p]) {
                 searchParams.set(p, this.stsParams[p]);
             }
